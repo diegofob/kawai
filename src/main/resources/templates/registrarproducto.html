@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments :: html_head"></head>
+<body class="electroplus">
+<main class="h-100">
+    <div th:replace="fragments :: header"></div>
+    <div class="bg-one" style="height: 7rem"></div>
+    <div class="container" style="margin-top: -80px">
+        <div class="electroplus__cabecera mt-2" style="background-color: #E4F7FB !important;">
+            <div class="d-flex justify-content-around align-items-center">
+                <div class="px-3 text-center">
+                    <label class="electroplus__cabecera_title text-one">REGISTRAR PRODUCTO</label>
+                </div>
+                <div>
+                    <img src="image/producto.svg" alt="image_catalogo" style="margin-top: -8px">
+                </div>
+            </div>
+        </div>
+        <div class="py-4">
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="text" class="form-control" id="precio" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="preciodescuento" class="form-label">Precio Descuento</label>
+                            <input type="text" class="form-control" id="preciodescuento" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="foto" class="form-label">Foto</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="foto" aria-describedby="fotografia">
+                                <label class="custom-file-label" for="foto">:: seleccionar ::</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="categoria" class="form-label">Categoría</label>
+                            <select class="form-control" id="categoria">
+                                <option>OTROS</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="descripcion" rows="1"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button class="btn btn-primary btn-block">Registrar Producto</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

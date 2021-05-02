@@ -1,0 +1,53 @@
+.electroplus__cabecera {
+    background-color: var(--electroplus-one-cero);
+    border-radius: 5px;
+}
+
+.electroplus__cabecera_title {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.text-70 {
+    color: var(--electroplus-one-70);
+}
+
+.electroplus__items_title {
+    font-size: 19px;
+    color: var(--electroplus-one);
+}
+
+.electroplus__items_vertodo {
+    font-size: 16px;
+    color: var(--electroplus-one-70);
+    cursor: pointer;
+}
+
+.electroplus__items_vertodo:hover {
+    color: var(--electroplus-one);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.item-titulo, .item-descuento {
+    font-size: 14px;
+    color: var(--electroplus-one-70);
+    margin-bottom: 0;
+}
+
+.item-descuento {
+    text-decoration: line-through;
+}
+
+.item-descripcion {
+    font-size: 14px;
+    color: var(--electroplus-one);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.item-precio {
+    font-size: 16px;
+    color: var(--electroplus-one);
+    font-weight: 900;
+}
