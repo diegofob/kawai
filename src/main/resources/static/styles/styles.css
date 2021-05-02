@@ -1,0 +1,17 @@
+
+html,
+body {
+    height: 100%;
+}
+body.electroplus {
+    overflow-x: hidden;
+    font-family: "Roboto";
+    font-weight: normal;
+    font-style: normal;
+    padding-top: 75px;
+    letter-spacing: 0.01rem;
+}
+
+.bg-one{
+    background-color: #333C6D;
+}

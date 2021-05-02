@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<!-- Web dependencies -->
-		<webjars-bootstrap.version>4.6.0</webjars-bootstrap.version>
+		<webjars-bootstrap.version>4.5.0</webjars-bootstrap.version>
 		<webjars-jquery-ui.version>1.12.1</webjars-jquery-ui.version>
 		<webjars-jquery.version>3.6.0</webjars-jquery.version>
 		<font-awesome.version>5.15.2</font-awesome.version>
@@ -30,10 +30,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
+			<!--scope>runtime</scope-->
 			<optional>true</optional>
 		</dependency>
 		<dependency>
