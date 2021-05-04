@@ -51,3 +51,28 @@
     color: var(--electroplus-one);
     font-weight: 900;
 }
+
+.card {
+    transition: all .3s;
+    padding: .5rem;
+    border-radius: 8px !important;
+    cursor: pointer;
+    margin: 0 1rem 1rem 0;
+}
+
+.card:hover {
+    box-shadow: 0 6px 10px rgb(0 0 0 / 15%);
+}
+
+.card-imagen {
+    height: 136px !important;
+    width: 156px !important;
+}
+
+.text-truncate-2 {
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}

@@ -19,7 +19,6 @@
 		<webjars-bootstrap.version>4.5.0</webjars-bootstrap.version>
 		<webjars-jquery-ui.version>1.12.1</webjars-jquery-ui.version>
 		<webjars-jquery.version>3.6.0</webjars-jquery.version>
-		<font-awesome.version>5.15.2</font-awesome.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -83,11 +82,6 @@
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap-datepicker</artifactId>
 			<version>1.9.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>font-awesome</artifactId>
-			<version>${font-awesome.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>

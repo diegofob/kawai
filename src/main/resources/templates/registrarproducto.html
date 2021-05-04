@@ -17,62 +17,87 @@
             </div>
         </div>
         <div class="py-4">
-            <form action="" method="post">
+            <form th:object="${producto}" th:action="@{/producto/registrar}" method="POST">
                 <div class="row">
                     <div class="col-12 col-sm-6">
                         <div class="form-group">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="">
+                            <input type="text" th:field="*{nombre}" required class="form-control" id="nombre">
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6">
                         <div class="form-group">
                             <label for="precio" class="form-label">Precio</label>
-                            <input type="text" class="form-control" id="precio" placeholder="">
+                            <input type="text" onkeypress="return numberDecimal(event, 10, 2, false)"
+                                   th:field="*{precio}" required class="form-control" id="precio">
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6">
                         <div class="form-group">
-                            <label for="preciodescuento" class="form-label">Precio Descuento</label>
-                            <input type="text" class="form-control" id="preciodescuento" placeholder="">
+                            <label for="descuento" class="form-label">Precio Descuento</label>
+                            <input type="text" onkeypress="return numberDecimal(event, 10, 2, false)"
+                                   th:field="*{descuento}" required class="form-control" id="descuento">
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6">
                         <div class="form-group">
-                            <label for="foto" class="form-label">Foto</label>
+                            <label for="foto" class="form-label">Seleccionar imagen</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="foto" aria-describedby="fotografia">
-                                <label class="custom-file-label" for="foto">:: seleccionar ::</label>
+                                <input type="file" required class="custom-file-input"
+                                       accept=".jpg,.jpeg" onchange="getImage(event.target)">
+                                <input class="d-none" type="text" id="foto" th:field="${producto.imagen}">
+                                <label class="custom-file-label" id="labelfoto"></label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6">
                         <div class="form-group">
-                            <label for="categoria" class="form-label">Categoría</label>
-                            <select class="form-control" id="categoria">
-                                <option>OTROS</option>
-                            </select>
+                            <label for="foto" class="form-label">Visualizar Imagen</label>
+                            <div class="d-flex justify-content-center">
+                                <div class="card m-0">
+                                    <img src="image/image.svg" id="preview" class="card-img-top"
+                                         style="width:14rem !important;">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6">
                         <div class="form-group">
                             <label for="descripcion" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="descripcion" rows="1"></textarea>
+                            <textarea class="form-control" th:field="*{descripcion}" required id="descripcion"
+                                      rows="8">
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="categoria" class="form-label">Categoría</label>
+                            <select class="form-control" th:field="${producto.categoria}" required id="categoria">
+                                <option th:each="categoria : ${categorias}" th:value="${categoria.id}">
+                                    <span th:text="${categoria.descripcion}"></span>
+                                </option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="col-12">
-                        <button class="btn btn-primary btn-block">Registrar Producto</button>
+                        <button type="submit" class="btn btn-primary btn-block">Registrar Producto</button>
                     </div>
                 </div>
             </form>
+            <p th:text="${mensaje}"/>
         </div>
     </div>
 </main>
+
+<script>
+
+</script>
 </body>
 </html>

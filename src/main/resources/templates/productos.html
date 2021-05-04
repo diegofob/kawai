@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments :: html_head"></head>
+<body class="electroplus">
+<main class="h-100">
+    <div th:replace="fragments :: header"></div>
+    <div class="container">
+        <div class="electroplus__items py-4">
+            <div class="d-flex justify-content-between">
+                <label class="electroplus__items_title"
+                       th:text="'LISTA DE PRODUCTOS (' + ${productos.size()} + ')'"></label>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-6 col-sm-4 col-md-3" th:each="producto : ${productos}">
+                    <div class="card border-0">
+                        <div class="d-flex justify-content-center">
+                            <div class="card-imagen">
+                                <img th:src="${producto.imagen}" class="card-img-top">
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <h5 class="card-title item-titulo" th:text="${producto.nombre}"></h5>
+                            <p class="card-text item-descripcion text-truncate-2" th:text="${producto.descripcion}"></p>
+                            <p class="item-descuento" th:text="'S/. ' + ${producto.precioDescuento}"></p>
+                            <p class="item-precio" th:text="'S/. ' + ${producto.precio}"></p>
+                            <a th:href="'/producto/' + ${producto.id}" class="btn btn-block btn-primary">Actualizar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+</body>
+</html>
