@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head th:replace="fragments :: html_head"></head>
 <body class="electroplus">
-<main class="h-100">
+<main class="h-100" style="background-color: #ebebeb63;">
     <div th:replace="fragments :: header"></div>
     <div class="container">
         <div class="electroplus__items py-4">
-            <div class="d-flex justify-content-between">
-                <label class="electroplus__items_title"
+            <div class="d-flex justify-content-between border-bottom pb-2">
+                <label class="electroplus__items_title" style="font-weight: 900"
                        th:text="'LISTA DE PRODUCTOS (' + ${productos.size()} + ')'"></label>
+                <a class="btn btn-primary" href="/producto">REGISTRAR PRODUCTO</a>
             </div>
             <div class="row no-gutters">
                 <div class="col-6 col-sm-4 col-md-3" th:each="producto : ${productos}">
@@ -19,7 +20,7 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <h5 class="card-title item-titulo" th:text="${producto.nombre}"></h5>
+                            <h5 class="card-title item-titulo text-uppercase text-truncate" th:text="${producto.nombre}"></h5>
                             <p class="card-text item-descripcion text-truncate-2" th:text="${producto.descripcion}"></p>
                             <p class="item-descuento" th:text="'S/. ' + ${producto.precioDescuento}"></p>
                             <p class="item-precio" th:text="'S/. ' + ${producto.precio}"></p>

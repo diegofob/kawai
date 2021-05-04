@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head th:replace="fragments :: html_head"></head>
 <body class="electroplus">
 <main class="h-100">
@@ -9,7 +9,7 @@
         <div class="electroplus__cabecera mt-2" style="background-color: #E4F7FB !important;">
             <div class="d-flex justify-content-around align-items-center">
                 <div class="px-3 text-center">
-                    <label class="electroplus__cabecera_title text-one">ACTUALIZAR PRODUCTO</label>
+                    <label class="electroplus__cabecera_title text-one" th:text="${titulo}"></label>
                 </div>
                 <div>
                     <img th:src="@{/image/producto.svg}" alt="image_catalogo" style="margin-top: -8px">
@@ -17,8 +17,10 @@
             </div>
         </div>
         <div class="py-4">
-            <form th:object="${producto}" th:action="@{/producto/actualizar}" method="POST">
+            <form th:object="${producto}" th:action="@{/producto/registrar}" method="POST">
                 <input type="hidden" th:field="${producto.id}"/>
+                <input type="hidden" th:field="${producto.nombreimagen}" id="nombreimagen"/>
+                <input type="hidden" th:field="${producto.imagen}" id="foto">
                 <div class="row">
                     <div class="col-12 col-sm-6">
                         <div class="form-group">
@@ -47,10 +49,10 @@
                         <div class="form-group">
                             <label for="foto" class="form-label">Seleccionar imagen</label>
                             <div class="custom-file">
-                                <input type="file" required class="custom-file-input"
+                                <input type="file" class="custom-file-input"
                                        accept=".jpg,.jpeg" onchange="getImage(event.target)">
-                                <input class="d-none" type="text" id="foto" th:field="${producto.imagen}">
-                                <label class="custom-file-label" id="labelfoto"></label>
+                                <label class="custom-file-label" id="labelfoto"
+                                       th:text="${producto.nombreimagen}"></label>
                             </div>
                         </div>
                     </div>
@@ -71,12 +73,10 @@
                         <div class="form-group">
                             <label for="descripcion" class="form-label">Descripción</label>
                             <textarea class="form-control" th:field="${producto.descripcion}" required id="descripcion"
-                                      rows="8">
+                                      rows="4">
                             </textarea>
                         </div>
-                    </div>
 
-                    <div class="col-12 col-sm-6">
                         <div class="form-group">
                             <label for="categoria" class="form-label">Categoría</label>
                             <select class="form-control" th:field="${producto.categoria}" required id="categoria">
@@ -88,13 +88,13 @@
                     </div>
 
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary btn-block">Actualizar Producto</button>
+                        <button type="submit" class="btn btn-primary btn-block" th:text="${titulo}"></button>
                     </div>
                 </div>
             </form>
-            <p th:text="${mensaje}"/>
         </div>
     </div>
 </main>
+<div th:replace="fragments :: toast"></div>
 </body>
 </html>

@@ -44,15 +44,16 @@ function soloenteros(value) {
     return /^[0-9]+$/.test(value);
 }
 
-function insert(arr, index, newItem) { return [...arr.slice(0, index), newItem, ...arr.slice(index)] }
-
+function insert(arr, index, newItem) {
+    return [...arr.slice(0, index), newItem, ...arr.slice(index)]
+}
 
 /**
  * @Event event
  * */
 function getImage(event) {
-    var file = event.files[0];
-    var reader = new FileReader();
+    const file = event.files[0];
+    const reader = new FileReader();
 
     reader.onload = function (e) {
         $('#preview').attr('src', e.target.result);
@@ -60,5 +61,6 @@ function getImage(event) {
     }
 
     reader.readAsDataURL(file);
-    document.getElementById("labelfoto").innerHTML = file.name;
+    document.getElementById("nombreimagen").value = file.name;
+    document.getElementById("labelfoto").innerHTML = 'C:\\fakepath\\' + file.name;
 }

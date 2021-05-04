@@ -39,10 +39,14 @@ body {
     outline: 0.5rem solid transparent;
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('roboto/Roboto-Regular.ttf');
+}
 
 body.electroplus {
     overflow-x: hidden;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     font-weight: normal;
     font-style: normal;
     padding-top: 75px;

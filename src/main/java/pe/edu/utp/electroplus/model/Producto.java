@@ -7,8 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "t_producto")
 public class Producto {
@@ -28,6 +27,9 @@ public class Producto {
     @NotNull
     @Column(columnDefinition = "TEXT")
     private String imagen;
+
+    @NotNull
+    private String nombreimagen;
 
     @NotNull
     private Integer categoria;
