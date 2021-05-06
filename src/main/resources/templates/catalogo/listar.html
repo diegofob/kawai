@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
-<head th:replace="fragments :: html_head"></head>
-<body class="electroplus">
-<main class="h-100" style="background-color: #ebebeb63;">
-    <div th:replace="fragments :: header"></div>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragment/fragment :: fragment (~{::body},'listar')}">
+
+<body>
     <div class="container">
         <div class="electroplus__items py-4">
             <div class="d-flex justify-content-between border-bottom pb-2">
@@ -31,7 +30,5 @@
             </div>
         </div>
     </div>
-    </div>
-</main>
 </body>
 </html>

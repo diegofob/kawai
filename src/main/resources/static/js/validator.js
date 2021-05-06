@@ -1,3 +1,8 @@
+// Open menu mobile
+function toggleMenuMobile() {
+    $('.electroplus__menu__navbar').toggleClass('show');
+}
+
 function numberDecimal(evt, enteros, decimal, negative) {
     // Backspace = 8, Enter = 13, ‘0′ = 48, ‘9′ = 57, ‘.’ = 46, ‘-’ = 45
     var key = (evt.which) ? evt.which : evt.keyCode;
@@ -11,20 +16,18 @@ function numberDecimal(evt, enteros, decimal, negative) {
     var preg = new RegExp(`^${negative === true ? '-?' : ''}\\d{0,${enteros}}(\\.\\d{0,${decimal}})?$`);
     var chark = String.fromCharCode(key);
     if (getSelectedText(input)) return soloenteros(chark);
-    if (soloenteros(chark) || key == 46 || (negative === true && key == 45)) {
+    if (soloenteros(chark) || key === 46 || (negative === true && key === 45)) {
         var temp = txt.split("");
         temp = insert(temp, input.selectionStart, chark);
         var valtemp = temp.join("");
-        if (key == 46) {
+        if (key === 46) {
             if (!(indexof > -1)) {
                 return true;
             }
         } else {
             return preg.test(valtemp);
         }
-        if (key > 31 && (key < 48 || key > 57))
-            return false;
-        return true;
+        return !(key > 31 && (key < 48 || key > 57));
     }
     return false;
 }
@@ -33,10 +36,9 @@ function numberDecimal(evt, enteros, decimal, negative) {
 function getSelectedText(input) {
     var startPos = input.selectionStart;
     var endPos = input.selectionEnd;
-    const doa = document;
-    var doc = doa.selection;
-    const val1 = doc && doc.createRange().text.length != 0;
-    const val2 = !doc && input.value.substring(startPos, endPos).length != 0;
+    var doc = document.selection;
+    const val1 = doc && doc.createRange().text.length !== 0;
+    const val2 = !doc && input.value.substring(startPos, endPos).length !== 0;
     return val1 || val2;
 }
 
