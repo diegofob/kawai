@@ -15,5 +15,4 @@ public class CarritoController {
     public String carrito(Principal principal) {
         return "carrito";
     }
-
 }
