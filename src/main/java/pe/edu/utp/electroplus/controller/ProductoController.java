@@ -38,13 +38,13 @@ public class ProductoController {
     @GetMapping({ "/", "/inicio" })
     public String index(Model model) {
         model.addAttribute("productos", listarProductos());
-        return "producto/catalogo";
+        return "catalogo/catalogo";
     }
 
     @GetMapping("/productos")
     public String navigateActualizar(Model model) {
         model.addAttribute("productos", listarProductos());
-        return "producto/listar";
+        return "catalogo/listar";
     }
 
     @GetMapping("/producto")
@@ -54,8 +54,7 @@ public class ProductoController {
         model.addAttribute(PRODUCTO, producto);
         model.addAttribute(TITULO, "REGISTRAR PRODUCTO");
         model.addAttribute(CATEGORIAS, categoriaRepository.findAll());
-        model.addAttribute(MENSAJE, Strings.EMPTY);
-        return "producto/formulario";
+        return "catalogo/formulario";
     }
 
     @GetMapping("/producto/{id}")
@@ -64,7 +63,7 @@ public class ProductoController {
         model.addAttribute(PRODUCTO, producto);
         model.addAttribute(TITULO, "ACTUALIZAR PRODUCTO");
         model.addAttribute(CATEGORIAS, categoriaRepository.findAll());
-        return "producto/formulario";
+        return "catalogo/formulario";
     }
 
     @PostMapping("/producto/registrar")

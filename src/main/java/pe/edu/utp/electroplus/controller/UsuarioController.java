@@ -10,6 +10,6 @@ public class UsuarioController {
 
     @GetMapping("/micuenta")
     public String micuenta(Principal principal) {
-        return "usuario";
+        return "usuario/usuario";
     }
 }
