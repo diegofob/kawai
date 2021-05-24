@@ -20,12 +20,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import lombok.extern.log4j.Log4j2;
 import pe.edu.utp.electroplus.model.Producto;
 import pe.edu.utp.electroplus.repository.CategoriaRepository;
 import pe.edu.utp.electroplus.repository.ProductoRepository;
 
-@Log4j2
 @Controller
 public class ProductoController {
 
@@ -52,7 +50,7 @@ public class ProductoController {
     @GetMapping("/producto")
     public String navigate(Model model) {
         Producto producto = new Producto();
-        producto.setImagen("/src/main/resources/static/image/image.svg");
+        producto.setImagen("image/image.svg");
         model.addAttribute(PRODUCTO, producto);
         model.addAttribute(TITULO, "REGISTRAR PRODUCTO");
         model.addAttribute(CATEGORIAS, categoriaRepository.findAll());
