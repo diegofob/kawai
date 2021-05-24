@@ -1,4 +1,12 @@
+server:
+  port: 8090
+  servlet:
+    application-display-name: electroplus-service
+
 spring:
+  application:
+    name: electroplus-service
+
   datasource:
     url: jdbc:postgresql://ec2-52-0-114-209.compute-1.amazonaws.com:5432/d7qaqn765gt6lj
     username: uthkswthggnyby
@@ -8,6 +16,9 @@ spring:
       connection-test-query: SELECT 1
       minimum-idle: 1
       maximum-pool-size: 3
+
+    initialization-mode: always
+    data: classpath:data/categoria.sql,classpath:data/rol.sql
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQL94Dialect

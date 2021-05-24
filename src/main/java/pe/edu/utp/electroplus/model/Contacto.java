@@ -5,21 +5,29 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Entity
 @Data
+@Entity
 @Table(name = "t_contacto")
-public class Contact {
+public class Contacto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String email;
-    private String phone;
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date birtdate;
-    private String gender;
-    private String maritalStatus;
-    private Integer childrens;
+
+    @NotNull
+    private String nombres;
+
+    @NotNull
+    private String apellidos;
+
+    @NotNull
+    private String telefono;
+
+    @NotNull
+    private String correo;
+
+    @NotNull
+    private String mensaje;
 }

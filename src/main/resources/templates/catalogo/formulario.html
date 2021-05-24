@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="py-4">
-            <form th:object="${producto}" th:action="@{/templates/catalogo/registrar}" method="POST">
+            <form th:object="${producto}" th:action="@{/producto/registrar}" method="POST">
                 <input type="hidden" th:field="${producto.id}"/>
                 <input type="hidden" th:field="${producto.nombreimagen}" id="nombreimagen"/>
                 <input type="hidden" th:field="${producto.imagen}" id="foto">
