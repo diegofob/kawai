@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragment/fragment :: fragment (~{::body},'carrito')}">
+
+<body>
+    <div class="container">
+        <div class="electroplus__items py-4">
+            <div class="d-flex justify-content-between border-bottom pb-2">
+                <label class="electroplus__items_title" style="font-weight: 900"
+                >CARRITO DE COMPRAS</label>
+                
+            </div>
+            <div class="row no-gutters">
+                <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card border-0">
+                        <div class="d-flex justify-content-center">
+                            <div class="card-imagen">
+                                <img class="card-img-top">
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <h5 class="card-title item-titulo text-uppercase text-truncate"></h5>
+                            <p class="card-text item-descripcion text-truncate-2">HP Laptop</p>
+                            <p class="item-descuento"></p>
+                            <p class="item-precio">s/2000.00</p>
+                            <a class="btn btn-block btn-primary">Eliminar de la bolsa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
