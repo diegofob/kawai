@@ -31,3 +31,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  thymeleaf:
+    suffix: .html
+    cache: false

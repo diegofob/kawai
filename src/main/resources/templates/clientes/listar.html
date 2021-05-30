@@ -42,9 +42,9 @@
                 <th scope="row" th:text="${cl.id}"></th>
                 <td th:text="${cl.nombre}"></td>
                 <td th:text="${cl.apellidos}"></td>
-                <td th:text="${cl.rol}"></td>
-                <td th:text="${cl.email}"></td>
-                <td th:text="${cl.contrasena}"></td>
+                <td th:text="${cl.role.codigo}"></td>
+                <td th:text="${cl.username}"></td>
+                <td th:text="${cl.password}"></td>
 
                 <td>
                     <a class="btn btn-success btn-sm" th:href="@{/clientes/edit/}+ ${cl.id}"

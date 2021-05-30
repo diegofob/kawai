@@ -1,6 +1,9 @@
-delete
-from t_rol;
+INSERT INTO t_rol (codigo)
+SELECT 'CLIENTE'
+FROM t_rol
+WHERE NOT EXISTS(SELECT codigo FROM t_rol WHERE codigo = 'CLIENTE');
 
-INSERT INTO t_rol ( codigo)
-VALUES ('ADMINISTRADOR'),
-       ('CLIENTE');
+INSERT INTO t_rol (codigo)
+SELECT 'ADMINISTRADOR'
+FROM t_rol
+WHERE NOT EXISTS(SELECT codigo FROM t_rol WHERE codigo = 'ADMINISTRADOR');

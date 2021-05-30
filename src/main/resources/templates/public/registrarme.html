@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
-      th:replace="~{fragment/fragment :: fragment (~{::body},'clientecrear')}">
+      th:replace="~{fragment/fragment :: fragment (~{::body},'publiccrear')}">
 
 <body>
 <div class="bg-one" style="height: 7rem"></div>
@@ -18,16 +18,13 @@
         </div>
     </div>
     <div class="py-4">
-        <form th:action="@{/clientes/save}" th:object="${cliente}" method="POST">
+        <form th:action="@{/public/cliente}" th:object="${cliente}" method="POST">
             <div class="row">
-
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
                         <input type="hidden" th:field="*{id}">
-                        <input type="hidden" th:field="*{isUpdate}">
-                        <input type="hidden" th:field="*{codigoRole}">
                         <label for="username" class="form-label">Email</label>
-                        <input type="text" th:field="*{username} " class="form-control" id="username"
+                        <input type="text" th:field="*{username}" class="form-control" id="username"
                                placeholder="Email del usuario">
                     </div>
                 </div>
@@ -35,7 +32,7 @@
                     <div class="form-group">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" th:field="*{nombre}" class="form-control" id="nombre"
-                               placeholder="Nombres del usuario">
+                               placeholder="Nombre del usuario">
                     </div>
                 </div>
                 <div class="col-12 col-sm-6">
@@ -60,14 +57,15 @@
                     <div class="form-group">
                         <label for="password" class="form-label">Contraseña</label>
                         <input type="password" th:field="*{password} " class="form-control" id="password"
-                               placeholder="Contraseña del usuario">
+                               placeholder="Contraseña">
                     </div>
                 </div>
+
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
                         <label for="confirmarpassword" class="form-label">Confirmar Contraseña</label>
-                        <input type="text" th:field="*{confirmarpassword}" class="form-control" id="confirmarpassword"
-                               placeholder="">
+                        <input type="password" th:field="*{confirmarpassword}" class="form-control" id="confirmarpassword"
+                               placeholder="Confirmar contraseña">
                     </div>
                 </div>
                 <div class="col-12">
