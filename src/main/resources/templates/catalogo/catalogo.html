@@ -36,7 +36,9 @@
                         <p class="card-text item-descripcion text-truncate-2" th:text="${producto.descripcion}"></p>
                         <p class="item-descuento" th:text="'S/. ' + ${producto.precioDescuento}"></p>
                         <p class="item-precio" th:text="'S/. ' + ${producto.precio}"></p>
-                        <a href="#" class="btn btn-block btn-primary">Agregar a la bolsa</a>
+                        <a th:href="@{/carrito/agregar/}+${producto.id}" class="btn btn-block btn-primary">
+                            Agregar a carrito
+                        </a>
                     </div>
                 </div>
             </div>

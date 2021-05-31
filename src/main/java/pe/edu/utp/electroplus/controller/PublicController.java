@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pe.edu.utp.electroplus.model.Contacto;
 import pe.edu.utp.electroplus.model.Usuario;
 import pe.edu.utp.electroplus.model.Role;
@@ -18,6 +19,8 @@ import pe.edu.utp.electroplus.service.LoginService;
 import javax.validation.Valid;
 import java.util.List;
 
+import static pe.edu.utp.electroplus.utils.Constants.MENSAJE;
+
 @Controller
 @AllArgsConstructor
 @RequestMapping("/public")
@@ -27,7 +30,7 @@ public class PublicController {
     private final LoginService loginService;
     private final ContactoRepository contactsData;
 
-    private static final String INDEX = "/contacto/create";
+    private static final String INDEX = "contacto/create";
     private static final String MODEL_CONTACTO = "contacto";
 
     @GetMapping("/cliente")
@@ -44,13 +47,14 @@ public class PublicController {
     }
 
     @PostMapping("/cliente")
-    public String guardar(@ModelAttribute Usuario usuario, BindingResult bindingResult) {
+    public String guardar(@ModelAttribute Usuario usuario, BindingResult bindingResult, RedirectAttributes redirect) {
         if (bindingResult.hasErrors()) {
+            redirect.addAttribute(MENSAJE, "Ocurrió un error al registrarse.");
             return "public/registrarme";
         }
         clienteService.guardar(usuario);
         loginService.iniciarSesion(usuario.getUsername(), usuario.getPassword());
-        System.out.println("Cliente Agregado Con Exito");
+        redirect.addAttribute(MENSAJE, "Cliente Agregado con éxito");
         return "redirect:/login";
     }
 
@@ -61,13 +65,12 @@ public class PublicController {
     }
 
     @PostMapping("/contacto")
-    public String createSubmitForm(Model model, @Valid Contacto objContact, BindingResult result) {
+    public String createSubmitForm(RedirectAttributes redirect, @Valid Contacto contacto, BindingResult result) {
         if (result.hasFieldErrors()) {
-            model.addAttribute("mensaje", "No se registro un contacto");
+            redirect.addAttribute(MENSAJE, "No se ha podido registrar la consulta.");
         } else {
-            this.contactsData.save(objContact);
-            model.addAttribute(MODEL_CONTACTO, objContact);
-            model.addAttribute("mensaje", "Se registro un contacto");
+            this.contactsData.save(contacto);
+            redirect.addAttribute(MENSAJE, "Se registro la consulta.");
         }
         return INDEX;
     }

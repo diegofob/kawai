@@ -12,12 +12,12 @@
                 <small class="text-one-70">Estamos atentos a tus comentarios</small>
             </div>
             <div>
-                <img src="/image/producto.svg" alt="image_catalogo" style="margin-top: -8px">
+                <img src="/image/producto.svg" alt="image_contacto" style="margin-top: -8px">
             </div>
         </div>
     </div>
     <div class="py-4">
-        <form th:object="${contacto}" th:action="@{/contacto/create}" method="POST">
+        <form th:object="${contacto}" th:action="@{/contacto}" method="POST">
             <div class="row">
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
@@ -29,7 +29,7 @@
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
                         <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" th:field="*{apellidos}"/>
+                        <input type="text" class="form-control" id="apellidos" th:field="*{apellidos}"/>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
                         <label for="correo" class="form-label">Correo Electrónico</label>
-                        <input type="text" class="form-control" id="correo" th:field="*{correo}"/>
+                        <input type="email" class="form-control" id="correo" th:field="*{correo}" required/>
                     </div>
                 </div>
 
@@ -55,9 +55,8 @@
                 </div>
 
                 <div class="col-12">
-                    <button th:with="text='Enviar Consulta'"
-                            class="btn btn-primary btn-block" type="submit"
-                            th:text="${text}">Enviar Consulta
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Enviar Consulta
                     </button>
                 </div>
             </div>

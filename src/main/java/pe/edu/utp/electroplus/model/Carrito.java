@@ -1,16 +1,18 @@
 package pe.edu.utp.electroplus.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "t_carrito")
 public class Carrito {
     @Id
@@ -18,7 +20,8 @@ public class Carrito {
     private Long id;
 
     @NotNull
-    private Long idProducto;
+    @ManyToOne
+    private Producto producto;
 
     @NotNull
     private Long idUsuario;
