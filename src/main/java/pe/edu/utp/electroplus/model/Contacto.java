@@ -17,18 +17,18 @@ public class Contacto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
+    @NotNull(message = "el nombre no puede ser nulo")
     private String nombres;
 
-    @NotNull
+    @NotNull(message = "el apellido no puede ser nulo")
     private String apellidos;
 
-    @NotNull
+    @NotNull(message = "el telefono no puede ser nulo")
     private String telefono;
 
-    @NotNull
+    @NotNull(message = "el correo no puede ser nulo")
     private String correo;
 
-    @NotNull
+    @NotNull(message = "el mensaje no puede ser nulo")
     private String mensaje;
 }

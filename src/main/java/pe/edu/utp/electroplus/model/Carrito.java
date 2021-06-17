@@ -24,13 +24,13 @@ public class Carrito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "producto no puede ser nulo")
     @ManyToOne
     private Producto producto;
 
-    @NotNull
+    @NotNull(message = "idUsuario no puede ser nulo")
     private Long idUsuario;
 
-    @NotNull
+    @NotNull(message = "cantidad no puede ser nulo")
     private Integer cantidad;
 }

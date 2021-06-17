@@ -17,7 +17,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String codigo;
-//
-//    @OneToMany(mappedBy = "role")
-//    private Set<Usuario> usuarios;
+    //
+    // @OneToMany(mappedBy = "role")
+    // private Set<Usuario> usuarios;
 }

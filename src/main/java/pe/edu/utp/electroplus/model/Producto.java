@@ -21,26 +21,26 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "nombre no puede ser nulo")
     private String nombre;
 
-    @NotNull
+    @NotNull(message = "precio no puede ser nulo")
     private BigDecimal precio;
 
-    @NotNull
+    @NotNull(message = "descuento no puede ser nulo")
     private BigDecimal descuento;
 
-    @NotNull
+    @NotNull(message = "imagen no puede estar vacio")
     @Column(columnDefinition = "TEXT")
     private String imagen;
 
-    @NotNull
+    @NotNull(message = "nombre de la imagen no puede ser nulo")
     private String nombreimagen;
 
-    @NotNull
+    @NotNull(message = "catergoria no puede ser nula")
     private Integer categoria;
 
-    @NotNull
+    @NotNull(message = "descripcion no puede ser nula")
     private String descripcion;
 
     @Transient
