@@ -1,9 +1,10 @@
 package pe.edu.utp.electroplus.controller;
 
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import lombok.AllArgsConstructor;
 import pe.edu.utp.electroplus.service.LoginService;
 
 @Controller

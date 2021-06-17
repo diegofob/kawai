@@ -1,11 +1,11 @@
 package pe.edu.utp.electroplus.config;
 
-
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import lombok.AllArgsConstructor;
 import pe.edu.utp.electroplus.model.Usuario;
 import pe.edu.utp.electroplus.service.ClienteService;
 
@@ -30,7 +30,8 @@ public class UsuarioValidator implements Validator {
                 errors.rejectValue("username", "El email registrado ya existe");
             }
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "El campo Confirmar contraseña no debe ser vacío.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password",
+                "El campo Confirmar contraseña no debe ser vacío.");
         if (!user.getConfirmarpassword().equals(user.getPassword())) {
             errors.rejectValue("confirmarpassword", "Las contraseñas no coinciden");
         }

@@ -1,9 +1,9 @@
 package pe.edu.utp.electroplus.service;
 
-import pe.edu.utp.electroplus.model.Usuario;
-import pe.edu.utp.electroplus.model.Role;
-
 import java.util.List;
+
+import pe.edu.utp.electroplus.model.Role;
+import pe.edu.utp.electroplus.model.Usuario;
 
 
 public interface ClienteService {

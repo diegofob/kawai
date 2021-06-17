@@ -1,15 +1,16 @@
 package pe.edu.utp.electroplus.service.impl;
 
-import lombok.AllArgsConstructor;
+import java.util.List;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pe.edu.utp.electroplus.model.Usuario;
+
+import lombok.AllArgsConstructor;
 import pe.edu.utp.electroplus.model.Role;
+import pe.edu.utp.electroplus.model.Usuario;
 import pe.edu.utp.electroplus.repository.ClienteRepository;
 import pe.edu.utp.electroplus.repository.RoleRepository;
 import pe.edu.utp.electroplus.service.ClienteService;
-
-import java.util.List;
 
 @Service
 @AllArgsConstructor

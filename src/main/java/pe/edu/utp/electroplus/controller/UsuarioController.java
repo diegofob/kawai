@@ -1,24 +1,27 @@
 package pe.edu.utp.electroplus.controller;
 
-import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
-import org.apache.logging.log4j.util.Strings;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pe.edu.utp.electroplus.config.UsuarioValidator;
-import pe.edu.utp.electroplus.model.Usuario;
-import pe.edu.utp.electroplus.model.Role;
-import pe.edu.utp.electroplus.service.ClienteService;
+import static pe.edu.utp.electroplus.utils.Constants.ERROR;
+import static pe.edu.utp.electroplus.utils.Constants.MENSAJE;
 
 import java.security.Principal;
 import java.util.List;
 import java.util.Objects;
 
-import static pe.edu.utp.electroplus.utils.Constants.ERROR;
-import static pe.edu.utp.electroplus.utils.Constants.MENSAJE;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import pe.edu.utp.electroplus.config.UsuarioValidator;
+import pe.edu.utp.electroplus.model.Role;
+import pe.edu.utp.electroplus.model.Usuario;
+import pe.edu.utp.electroplus.service.ClienteService;
 
 @Log4j2
 @Controller
@@ -40,7 +43,8 @@ public class UsuarioController {
     }
 
     @PostMapping("/micuenta")
-    public String modificarcuenta(@ModelAttribute Usuario usuario, RedirectAttributes redirect, BindingResult bindingResult) {
+    public String modificarcuenta(@ModelAttribute Usuario usuario, RedirectAttributes redirect,
+            BindingResult bindingResult) {
         usuarioValidator.validate(usuario, bindingResult);
         if (bindingResult.hasErrors()) {
             redirect.addFlashAttribute(ERROR, bindingResult.getAllErrors().get(0).getCode());
@@ -49,7 +53,6 @@ public class UsuarioController {
         clienteService.guardar(usuario);
         return "redirect:/micuenta";
     }
-
 
     /**
      * @Comentario: Mantenimiento de clientes
@@ -76,7 +79,8 @@ public class UsuarioController {
 
     @PostMapping("/clientes/save")
     public String guardar(@ModelAttribute Usuario cliente, BindingResult bindingResult, RedirectAttributes redirect) {
-        if (!Objects.isNull(cliente.getId())) cliente.setIsUpdate(true);
+        if (!Objects.isNull(cliente.getId()))
+            cliente.setIsUpdate(true);
 
         usuarioValidator.validate(cliente, bindingResult);
         if (bindingResult.hasErrors()) {
