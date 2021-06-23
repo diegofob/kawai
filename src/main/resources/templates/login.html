@@ -4,8 +4,11 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="../static/styles/oxstyles.css" />
       <title>Login</title>
    </head>
+
    <body>
       <div class="bg-one" style="height: 7rem"></div>
       <div class="container" style="margin-top: -80px">
@@ -20,7 +23,7 @@
             </div>
          </div>
 
-         <form th:action="@{/login}" method="POST">
+         <form id="enviar-email" th:action="@{/login}" method="POST">
             <div class="row">
                <div class="col-12 col-sm-6">
                   <div class="form-group">
@@ -47,8 +50,20 @@
                   </div>
                </div>
                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+               <div id="spinner">
+                  <div class="sk-chase">
+                     <div class="sk-chase-dot"></div>
+                     <div class="sk-chase-dot"></div>
+                     <div class="sk-chase-dot"></div>
+                     <div class="sk-chase-dot"></div>
+                     <div class="sk-chase-dot"></div>
+                     <div class="sk-chase-dot"></div>
+                  </div>
+               </div>
+
                <div class="col-12">
-                  <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                  <button type="submit" class="btn btn-primary btn-block" id="ox__enviar">Ingresar</button>
                </div>
                <div class="col-12 text-center pt-3">
                   <a href="/public/cliente">Crear una cuenta</a>
@@ -56,5 +71,217 @@
             </div>
          </form>
       </div>
+
+      <script>
+         // Variables
+         const btnEnviar = document.querySelector('#ox__enviar');
+         const formulario = document.querySelector('#enviar-email');
+
+         const er =
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+         // Variables para campos
+         const username = document.querySelector('#username');
+         const password = document.querySelector('#password');
+
+         eventListeners();
+         function eventListeners() {
+            // Cuando la app arranca
+            document.addEventListener('DOMContentLoaded', iniciarApp);
+
+            // Campos del formulario
+            username.addEventListener('blur', validarFormulario);
+            password.addEventListener('blur', validarFormulario);
+
+            // Enviar email
+            formulario.addEventListener('submit', enviarEmail);
+         }
+
+         // Funciones
+         function iniciarApp() {
+            btnEnviar.disabled = true;
+         }
+
+         // Valida el formulario
+         function validarFormulario(e) {
+            if (e.target.value.length > 0) {
+               // Elimina los errores...
+               const error = document.querySelector('p.error');
+               if (error) {
+                  error.remove();
+               }
+
+               e.target.classList.remove('is-invalid');
+               e.target.classList.add('is-valid');
+            } else {
+               e.target.classList.remove('is-valid');
+               e.target.classList.add('is-invalid');
+               mostrarError('Todos los campos son obligatorios');
+            }
+
+            // ==== VALIDACION PARA EL EMAIL ====
+            if (e.target.type == 'email') {
+               if (er.test(e.target.value)) {
+                  // Elimina los errores...
+                  const error = document.querySelector('p.error');
+                  if (error) {
+                     error.remove();
+                  }
+
+                  e.target.classList.remove('is-invalid');
+                  e.target.classList.add('is-valid');
+               } else {
+                  e.target.classList.remove('is-valid');
+                  e.target.classList.add('is-invalid');
+                  mostrarError('Email no válido');
+               }
+            }
+
+            if (er.test(username.value) && password.value !== '') {
+               btnEnviar.disabled = false;
+            } else {
+               btnEnviar.disabled = true;
+            }
+         }
+
+         function mostrarError(mensaje) {
+            const mensajeError = document.createElement('p');
+            mensajeError.textContent = mensaje;
+            mensajeError.classList.add(
+               'm-3',
+               'border',
+               'border-danger',
+               'bg-danger',
+               'text-danger',
+               'p-3',
+               'error'
+            );
+
+            const errores = document.querySelectorAll('.error');
+            if (errores.length == 0) {
+               formulario.appendChild(mensajeError);
+            }
+         }
+
+         // Enviar el email
+         function enviarEmail(e) {
+            e.preventDefault();
+
+            // Mostrar el spinner
+            const spinner = document.querySelector('#spinner');
+            spinner.style.display = 'flex';
+
+            // Despues de 3 segundo ocultar el spinner y mostrar el mensaje
+            setTimeout(() => {
+               spinner.style.display = 'none';
+
+               // Mensaje que dice que se envió correctamente
+               const parrafo = document.createElement('p');
+               parrafo.textContent = 'Tuvo éxito';
+               parrafo.classList.add('my-3', 'alert', 'alert-success', 'text-center');
+               // Inserta el parrafo antes del spinner
+               formulario.append(parrafo);
+
+               setTimeout(() => {
+                  parrafo.remove(); // Eliminar mensaje de exito
+               }, 2500);
+            }, 2000);
+         }
+
+         //
+      </script>
+      <style>
+         #spinner {
+            display: none;
+            justify-content: center;
+            padding: 3rem 0;
+         }
+
+         .sk-chase {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            animation: sk-chase 2.5s infinite linear both;
+         }
+
+         .sk-chase-dot {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: sk-chase-dot 2s infinite ease-in-out both;
+         }
+
+         .sk-chase-dot:before {
+            content: '';
+            display: block;
+            width: 25%;
+            height: 25%;
+            background-color: #0288d1;
+            border-radius: 100%;
+            animation: sk-chase-dot-before 2s infinite ease-in-out both;
+         }
+
+         .sk-chase-dot:nth-child(1) {
+            animation-delay: -1.1s;
+         }
+         .sk-chase-dot:nth-child(2) {
+            animation-delay: -1s;
+         }
+         .sk-chase-dot:nth-child(3) {
+            animation-delay: -0.9s;
+         }
+         .sk-chase-dot:nth-child(4) {
+            animation-delay: -0.8s;
+         }
+         .sk-chase-dot:nth-child(5) {
+            animation-delay: -0.7s;
+         }
+         .sk-chase-dot:nth-child(6) {
+            animation-delay: -0.6s;
+         }
+         .sk-chase-dot:nth-child(1):before {
+            animation-delay: -1.1s;
+         }
+         .sk-chase-dot:nth-child(2):before {
+            animation-delay: -1s;
+         }
+         .sk-chase-dot:nth-child(3):before {
+            animation-delay: -0.9s;
+         }
+         .sk-chase-dot:nth-child(4):before {
+            animation-delay: -0.8s;
+         }
+         .sk-chase-dot:nth-child(5):before {
+            animation-delay: -0.7s;
+         }
+         .sk-chase-dot:nth-child(6):before {
+            animation-delay: -0.6s;
+         }
+
+         @keyframes sk-chase {
+            100% {
+               transform: rotate(360deg);
+            }
+         }
+
+         @keyframes sk-chase-dot {
+            80%,
+            100% {
+               transform: rotate(360deg);
+            }
+         }
+
+         @keyframes sk-chase-dot-before {
+            50% {
+               transform: scale(0.4);
+            }
+            100%,
+            0% {
+               transform: scale(1);
+            }
+         }
+      </style>
    </body>
 </html>
