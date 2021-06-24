@@ -1,5 +1,7 @@
 package pe.edu.utp.electroplus.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+
 @Data
 @Entity
 @Builder
@@ -25,7 +30,8 @@ public class Carrito {
     private Long id;
 
     @NotNull(message = "producto no puede ser nulo")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "producto_id") 
     private Producto producto;
 
     @NotNull(message = "idUsuario no puede ser nulo")
@@ -33,4 +39,12 @@ public class Carrito {
 
     @NotNull(message = "cantidad no puede ser nulo")
     private Integer cantidad;
+
+    private BigDecimal precio;    
+    
+    private BigDecimal descuento; 
+
+    @Builder.Default
+    private String status="PENDING";     
+
 }

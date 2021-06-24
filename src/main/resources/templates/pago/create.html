@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragment/fragment :: fragment (~{::body},'pagar')}">
+   <body>
+      
+      <div class="container">
+         <div class="py-4">
+            <form th:object="${pago}" th:action="@{/pago/create}" method="post">
+               <input type="hidden" th:field="*{clienteId}"/>
+               <div class="row"> 
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label for="nomcliente" class="form-label">Cliente</label>
+                        <input type="text" class="form-control" id="nomcliente"  th:field="*{nombreTarjeta}" readonly />
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label for="envio" class="form-label">Direccion de envío</label>
+                        <input type="text" class="form-control" id="envio"  th:field="*{direccion}" />
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label for="tarjeta" class="form-label">Numero de Tarjeta</label>
+                        <input type="text" class="form-control" id="tarjeta" th:field="*{numeroTarjeta}"/>
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cvv" th:field="*{cvv}" />
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label for="" class="form-label">Documento de Identidad</label><br />
+                        <select id="cuotas" placeholder="cuotas" autocomplete="off" class="form-control" th:field="*{documento}">
+                           <option value="-">Seleccion documento</option>
+                           <option value="dni">DNI</option>
+                           <option value="extranjeria">Carnet de extranjeria</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label for="numero" class="form-label">Numero de documento</label>
+                        <input type="text" class="form-control" id="numero"   th:field="*{dni}"/>
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label for="cuotas" class="form-label">Cuotas</label><br />
+                        <select id="cuotas" placeholder="cuotas" autocomplete="off" class="form-control" th:field="*{cuota}">
+                           <option value="-">Numero de cuotas</option>
+                           <option value="1">1 Cuota</option>
+                           <option value="2">2 Cuotas</option>
+                           <option value="3">3 Cuotas</option>
+                           <option value="4">4 Cuotas</option>
+                        </select>
+                     </div>
+                  </div>
+
+                  <div class="mt-auto w-100 electroplus__navbar fixed-bottom py-2">
+                     <div class="d-flex justify-content-around align-items-center">
+                         <div class="px-3">
+                             <p class="text-one-70 text-white">Total</p>
+                             <small class="electroplus__cabecera_title text-one text-white" th:text="'S/. '+*{montoTotal}"></small>
+                         </div>
+                         <div>
+                             <button th:with="text='Finalizar Compra'" class="btn btn-primary btn-block"  style="margin-top: -8px" type="submit" th:text="${text}">
+                                 Finalizar Compra
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

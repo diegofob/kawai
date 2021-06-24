@@ -24,6 +24,7 @@ import pe.edu.utp.electroplus.service.ClienteService;
 @Controller
 @AllArgsConstructor
 public class CarritoController {
+    
     private final CarritoRepository carritoRepository;
     private final ProductoRepository productoRepository;
     private final ClienteService clienteService;
@@ -45,9 +46,13 @@ public class CarritoController {
     public String carritoAgregar(@PathVariable Long idProducto, Principal principal, RedirectAttributes redirect) {
         Usuario user = clienteService.findByUsername(principal.getName());
         Producto producto = productoRepository.getOne(idProducto);
+        BigDecimal total = producto.getDescuento(); 
+        total = total.add(producto.getPrecio());
         carritoRepository.saveAndFlush(Carrito.builder()
-                .cantidad(1)
+                .cantidad(1)                
+                .precio(producto.getPrecio())                
                 .producto(producto)
+                .descuento(total)
                 .idUsuario(user.getId())
                 .build());
         redirect.addFlashAttribute(MENSAJE, "Producto agregado correcamente");
@@ -62,4 +67,5 @@ public class CarritoController {
 
         return "redirect:/carrito";
     }
+
 }
