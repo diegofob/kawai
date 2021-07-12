@@ -60,20 +60,5 @@ public class PublicController {
         return "redirect:/login";
     }
 
-    @GetMapping("/contacto")
-    public String index(Model model) {
-        model.addAttribute(MODEL_CONTACTO, new Contacto());
-        return INDEX;
-    }
-
-    @PostMapping("/contacto")
-    public String createSubmitForm(RedirectAttributes redirect, @Valid Contacto contacto, BindingResult result) {
-        if (result.hasFieldErrors()) {
-            redirect.addAttribute(MENSAJE, "No se ha podido registrar la consulta.");
-        } else {
-            this.contactsData.save(contacto);
-            redirect.addAttribute(MENSAJE, "Se registro la consulta.");
-        }
-        return INDEX;
-    }
+    
 }

@@ -113,8 +113,17 @@
                            Clientes
                         </a>
                      </li>
+                     <li
+                        class="nav-item p-2"
+                        sec:authorize="isAuthenticated() && hasAuthority('ADMINISTRADOR')"
+                     >
+                        <a class="nav-link electroplus__navbar__link" href="/jasper/repventas">
+                           <i class="feather pr-2 icon-archive icon-sm"></i>
+                           Reportes
+                        </a>
+                     </li>
                      <li class="nav-item p-2">
-                        <a class="nav-link electroplus__navbar__link" href="/public/contacto">
+                        <a class="nav-link electroplus__navbar__link" th:href="@{/contacto/create}">
                            <i class="feather pr-2 icon-headphones icon-sm"></i>
                            Contacto
                         </a>
@@ -169,7 +178,7 @@
                            <a class="dropdown-item" href="/pedido/index">
                               <i class="feather pr-2 icon-archive icon-xs"></i>
                               Pedido
-                           </a>
+                           </a>                           
                            <div class="dropdown-divider"></div>
                            <a
                               class="dropdown-item"

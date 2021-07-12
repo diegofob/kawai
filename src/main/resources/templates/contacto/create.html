@@ -18,50 +18,51 @@
             </div>
          </div>
          <div class="py-4">
-            <form id="enviar-email" th:object="${contacto}" th:action="@{/contacto}" method="POST">
+            <form th:object="${contacto}" th:action="@{/contacto/create}" method="POST">
                <div class="row">
-                  <div class="col-12 col-sm-6">
-                     <div class="form-group">
-                        <label for="nombres" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="nombres" th:field="*{nombres}" />
-                     </div>
-                  </div>
+                   <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                           <label for="nombres" class="form-label">Nombres</label>
+                           <input type="text" class="form-control" id="nombres" th:field="*{nombres}" />
+                       </div>
+                   </div>
 
-                  <div class="col-12 col-sm-6">
-                     <div class="form-group">
-                        <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="apellidos" th:field="*{apellidos}" />
-                     </div>
-                  </div>
+                   <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                           <label for="apellidos" class="form-label">Apellidos</label>
+                           <input type="text" class="form-control"  th:field="*{apellidos}"/>
+                       </div>
+                   </div>
+                   
+                    <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                           <label for="telefono" class="form-label">Telefono</label>
+                           <input type="text" class="form-control" id="telefono" th:field="*{telefono}" />
+                       </div>
+                   </div>
 
-                  <div class="col-12 col-sm-6">
-                     <div class="form-group">
-                        <label for="telefono" class="form-label">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" th:field="*{telefono}" />
-                     </div>
-                  </div>
+                   <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                           <label for="correo" class="form-label">Correo Electrónico</label>
+                           <input type="text" class="form-control" id="correo" th:field="*{correo}" />
+                       </div>
+                   </div>
+                   
+                   <div class="col-12 col-sm-6">
+                       <div class="form-group">
+                           <label for="mensaje" class="form-label">Mensaje</label>
+                           <!--<input type="text" class="form-control" id="mensaje" th:field="*{mensaje}"/> -->                                         
+                           <textarea rows="3" class="form-control" id="mensaje" th:field="*{mensaje}"></textarea>
+                        </div>
+                   </div>
 
-                  <div class="col-12 col-sm-6">
-                     <div class="form-group">
-                        <label for="correo" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="correo" th:field="*{correo}" required />
-                     </div>
-                  </div>
-
-                  <div class="col-12 col-sm-6">
-                     <div class="form-group">
-                        <label for="mensaje" class="form-label">Mensaje</label>
-                        <input type="text" class="form-control" id="mensaje" th:field="*{mensaje}" />
-                     </div>
-                  </div>
-
-                  <div class="col-12">
-                     <button class="btn btn-primary btn-block" type="submit" id="btn__consultar">
-                        Enviar Consulta
-                     </button>
-                  </div>
+                   <div class="col-12">
+                       <button th:with="text='Enviar Consulta'"
+                               class="btn btn-primary btn-block" type="submit"
+                               th:text="${text}">Enviar Consulta</button>
+                   </div>
                </div>
-            </form>
+           </form>
          </div>
       </div>
 

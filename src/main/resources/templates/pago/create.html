@@ -5,6 +5,7 @@
          <div class="py-4">
             <form id="enviar-email" th:object="${pago}" th:action="@{/pago/create}" method="post">
                <input type="hidden" th:field="*{clienteId}" />
+               <input type="hidden" th:field="*{montoTotal}" />
                <div class="row">
                   <div class="col-12 col-sm-6">
                      <div class="form-group">
