@@ -25,7 +25,7 @@
                         <input type="hidden" th:field="*{id}" />
                         <input type="hidden" th:field="*{role}" />
                         <input type="hidden" th:field="*{isUpdate}" />
-                        <input type="hidden" th:field="*{codigoRole}" />
+                        <!--<input type="hidden" th:field="*{codigoRole}" />-->
                         <label for="correo" class="form-label">Correo Electrónico</label>
                         <input type="text" th:field="*{username}" class="form-control" id="correo" readonly />
                      </div>
@@ -60,6 +60,23 @@
                            id="confirmarpassword"
                            placeholder=""
                         />
+                     </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6">
+                     <div class="form-group">
+                        <label for="" class="form-label">ROL</label><br />
+                        <select
+                           id="rol"
+                           placeholder="rol"
+                           autocomplete="off"
+                           class="form-control"
+                           th:field="*{codigoRole}"
+                        >
+                           <option value="-">Selecciona un rol </option>
+                           <option value="CLIENTE">CLIENTE</option>
+                           <option value="ADMINISTRADOR">ADMINISTRADOR</option>
+                        </select>
                      </div>
                   </div>
 
