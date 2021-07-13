@@ -26,7 +26,7 @@ public class ContactoController {
     
     @PostMapping("/contacto/create")
     public String createSubmitForm(Model model, 
-        @Valid Contacto objContact, BindingResult result ){git status
+        @Valid Contacto objContact, BindingResult result ){
         if(result.hasFieldErrors()) {       
             model.addAttribute("mensaje", "No se registro un contacto");
         }else{
