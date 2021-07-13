@@ -27,7 +27,7 @@ public class ContactoController {
     @PostMapping("/contacto/create")
     public String createSubmitForm(Model model, 
         @Valid Contacto objContact, BindingResult result ){
-        if(result.hasFieldErrors()) {
+        if(result.hasFieldErrors()) {       
             model.addAttribute("mensaje", "No se registro un contacto");
         }else{
             this.contactsData.save(objContact);

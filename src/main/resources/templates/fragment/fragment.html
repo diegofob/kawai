@@ -76,12 +76,23 @@
                      </div>
                   </div>
                   <ul class="nav align-items-start h-100 flex-column flex-sm-row pt-5 pt-sm-0 px-3 container">
+                     
+ 
+                     <li class="nav-item p-2">
+                        <a class="nav-link electroplus__navbar__link" href="/dashboard">
+                           <i class="feather pr-2 icon-home icon-sm"></i>
+                           Dasboard
+                        </a>
+                     </li>
+
                      <li class="nav-item p-2">
                         <a class="nav-link electroplus__navbar__link" href="/inicio">
                            <i class="feather pr-2 icon-home icon-sm"></i>
                            Catalogo
                         </a>
                      </li>
+
+                  
                      <li class="nav-item p-2 d-block d-sm-none" sec:authorize="isAuthenticated()">
                         <a class="nav-link electroplus__navbar__link" href="/carrito">
                            <i class="feather pr-2 icon-shopping-cart icon-sm"></i>
@@ -208,7 +219,7 @@
             >
                <div class="toast-header">
                   <strong class="mr-auto text-success"><i class="feather icon-check"></i> Success !</strong>
-                  <!--small>text</small-->
+                  
                   <button type="button" class="ml-2 mb-1 close" data-dismiss="alert">
                      <span class="toast__close" aria-hidden="true">&times;</span>
                   </button>
