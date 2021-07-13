@@ -11,7 +11,7 @@ import pe.edu.utp.electroplus.repository.ContactoRepository;
 
 @Controller
 public class ContactoController {
-    private static final String INDEX ="/contacto/create"; 
+    private static final String INDEX ="contacto/create"; 
     private static String MODEL_CONTACTO="contacto";
     private final ContactoRepository contactsData;
 

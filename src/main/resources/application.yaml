@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: ${PORT:8080}
   servlet:
     application-display-name: electroplus-service
 
@@ -10,7 +10,7 @@ spring:
   datasource:
     url: jdbc:postgresql://ec2-23-22-191-232.compute-1.amazonaws.com:5432/d29e4g6sfefqni
     username: micyzxvkpmmtwh
-    password: cefa7b7a3f2c84bcc93259dccb40717ea6da1d7a282e4d07e8d82bc573b59ab3
+    password: ${HEROKU_PSS_DB:cefa7b7a3f2c84bcc93259dccb40717ea6da1d7a282e4d07e8d82bc573b59ab3}
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-test-query: SELECT 1
