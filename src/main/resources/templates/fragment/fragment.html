@@ -77,8 +77,10 @@
                   </div>
                   <ul class="nav align-items-start h-100 flex-column flex-sm-row pt-5 pt-sm-0 px-3 container">
                      
- 
-                     <li class="nav-item p-2">
+                     <li
+                     class="nav-item p-2"
+                     sec:authorize="isAuthenticated() && hasAuthority('ADMINISTRADOR')"
+                     >
                         <a class="nav-link electroplus__navbar__link" href="/dashboard">
                            <i class="feather pr-2 icon-home icon-sm"></i>
                            Dashboard
