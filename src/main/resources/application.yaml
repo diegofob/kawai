@@ -8,9 +8,9 @@ spring:
     name: electroplus-service
 
   datasource:
-    url: jdbc:postgresql://ec2-23-22-191-232.compute-1.amazonaws.com:5432/d29e4g6sfefqni
-    username: micyzxvkpmmtwh
-    password: ${HEROKU_PSS_DB:cefa7b7a3f2c84bcc93259dccb40717ea6da1d7a282e4d07e8d82bc573b59ab3}
+    url: jdbc:postgresql://ec2-44-206-89-185.compute-1.amazonaws.com:5432/d4qc2n6fsa0t8q
+    username: fgwkyhlyocplss
+    password: 17c5a4a64bfa79f94645965006c3debf6e4c78bfa6bae98d716221a850eda5ba
     driver-class-name: org.postgresql.Driver
     hikari:
       connection-test-query: SELECT 1
