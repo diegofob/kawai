@@ -1,7 +1,7 @@
 :root {
-    --electroplus-burple: #6726c4;
-    --electroplus-dark-burple: #5a21ac;
-    --electroplus-ligth-burple: #d9c2ff;
+    --electroplus-burple: #7879F1;
+    --electroplus-dark-burple: #7879F1;
+    --electroplus-ligth-burple: #7879F1;
     --electroplus-green: #00c44c;
     --electroplus-dark-green: #00a23f;
     --electroplus-ligth-green: #bbecc8;
@@ -10,13 +10,13 @@
     --electroplus-light-gray: #f5f6fa;
 
     --electroplus-deley-animacion: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    --electroplus-one: #333C6D;
+    --electroplus-one: #7879F1;
     --electroplus-one-cero: #E5E7ED;
     --electroplus-one-50: #B3B6C8;
     --electroplus-one-70: #8085A;
     --electroplus-verde: #45A00A;
     --electroplus-two: #23BDDE;
-    --electroplus-azul: #1A1F71;
+    --electroplus-azul: #7879F1;;
 
     --primary: var(--electroplus-one) !important;
 }
@@ -54,7 +54,7 @@ body.electroplus {
 }
 
 .bg-one {
-    background-color: #333C6D;
+    background-color: #7879F1;;
 }
 
 .text-one {
