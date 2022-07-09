@@ -1,10 +1,10 @@
-package pe.edu.utp.electroplus;
+package pe.edu.utp.kawaifood;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ElectroplusApplicationTests {
+class KawaiFoodApplicationTests {
 
 	@Test
 	void contextLoads() {
