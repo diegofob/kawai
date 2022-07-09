@@ -8,10 +8,10 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>pe.edu.utp</groupId>
-    <artifactId>electroplus</artifactId>
+    <artifactId>kawaifoof</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>electroplus</name>
-    <description>Tienda Virtual Electro Plus</description>
+    <description>Tienda Virtual Kawai Food</description>
     <properties>
         <java.version>8</java.version>
         <!-- Web dependencies -->
