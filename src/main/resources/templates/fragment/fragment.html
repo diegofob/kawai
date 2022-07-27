@@ -47,7 +47,7 @@
                 </button>
                 <a class="electroplus__link" style="color: white">
                     <img
-                            th:src="@{/image/kwaiilogo.svg}"
+                            th:src="@{/image/indice.jpg}"
                             class="electroplus__navbar__logo"
                             width="100"
                             height="100"
@@ -88,7 +88,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item p-2">
+                    <li class="nav-item p-2" sec:authorize="isAuthenticated() && hasAuthority('CLIENTE')">
                         <a class="nav-link electroplus__navbar__link" href="/inicio">
                             <i class="feather pr-2 icon-home icon-sm"></i>
                             Catalogo
@@ -123,6 +123,12 @@
                         </a>
                     </li>
                     
+                    <li class="nav-item p-2 pb-4 d-block mt-auto" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link electroplus__navbar__link" href="/inicio">
+                            <i class="feather pr-2 icon-log-in icon-sm"></i>
+                            Catalogo
+                        </a>
+                    </li>
 
                     <li class="nav-item p-2 pb-4 d-block mt-auto" sec:authorize="!isAuthenticated()">
                         <a class="nav-link electroplus__navbar__link" href="/login">
