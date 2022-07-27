@@ -96,12 +96,7 @@
                     </li>
 
 
-                    <li class="nav-item p-2 d-block d-sm-none" sec:authorize="isAuthenticated()">
-                        <a class="nav-link electroplus__navbar__link" href="/carrito">
-                            <i class="feather pr-2 icon-shopping-cart icon-sm"></i>
-                            Carrito de compras
-                        </a>
-                    </li>
+                  
 
                     <li class="nav-item p-2 d-block d-sm-none" sec:authorize="isAuthenticated()">
                         <a class="nav-link electroplus__navbar__link" href="/micuenta">
@@ -127,15 +122,7 @@
                             Clientes
                         </a>
                     </li>
-                    <li
-                            class="nav-item p-2"
-                            sec:authorize="isAuthenticated() && hasAuthority('ADMINISTRADOR')"
-                    >
-                        <a class="nav-link electroplus__navbar__link" href="/jasper/repventas">
-                            <i class="feather pr-2 icon-archive icon-sm"></i>
-                            Reportes
-                        </a>
-                    </li>
+                    
 
                     <li class="nav-item p-2 pb-4 d-block mt-auto" sec:authorize="!isAuthenticated()">
                         <a class="nav-link electroplus__navbar__link" href="/login">
@@ -180,7 +167,7 @@
                                 <i class="feather pr-2 icon-user icon-xs"></i>
                                 Mi Cuenta
                             </a>
-                            <a class="dropdown-item" href="/carrito">
+                            <a class="dropdown-item" href="/carrito" sec:authorize="isAuthenticated() && hasAuthority('CLIENTE')">
                                 <i class="feather pr-2 icon-shopping-cart icon-xs"></i>
                                 Carrito
                             </a>
